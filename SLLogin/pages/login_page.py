@@ -14,6 +14,5 @@ class SLLogin(BasePage):
       password=SLPasswordElement()
       def SLLoginTitle(self):
           return WebDriverWait(self.driver, 10).until(EC.title_is(("Swag Labs")))
-
       def SLLoginButton(self):
           self.driver.find_element(*SLLoginLocators.LOGIN).click()
