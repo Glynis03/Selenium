@@ -12,6 +12,7 @@ class SLInventory(BasePage):
       def is_title(self):
           element=WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(SLInventoryLocators.TITLE))
           return element.text
+
       def filter(self,value):
           mapping = {
                       'Name (A to Z)': 'az',
@@ -21,6 +22,7 @@ class SLInventory(BasePage):
                     }
           select=Select(WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(SLInventoryLocators.FILTER)))
           select.select_by_value(mapping.get(value, 'lohi'))
+
       def checkprice(self,filter):
           celement=self.driver.find_elements(*SLInventoryLocators.PRICES)
           prices = []
@@ -32,6 +34,7 @@ class SLInventory(BasePage):
           else:
                sort_price=sorted(prices,reverse=True)
           return prices,sort_price
+
       def checkitemname(self,filter):
           nelement=self.driver.find_elements(*SLInventoryLocators.ITEM_NAME)
           names = []
