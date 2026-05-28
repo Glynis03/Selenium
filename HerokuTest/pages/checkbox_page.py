@@ -7,10 +7,9 @@ class CheckboxesPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.url = "https://the-internet.herokuapp.com/checkboxes"
-
-    def load(self):
-        self.visit(self.url)
+    
+    def load(self,url):
+          self.visit(url)
 
     def get_checkboxes(self):
         return self.driver.find_elements(*self.CHECKBOXES)

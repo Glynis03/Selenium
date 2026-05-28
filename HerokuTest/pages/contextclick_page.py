@@ -5,9 +5,8 @@ class ContextMenuPage(BasePage):
       CONTEXTMENU=(By.ID, "hot-spot")
       def __init__(self,driver):
           super().__init__(driver)
-          self.url="https://the-internet.herokuapp.com/context_menu"
-      def load(self):
-          self.visit(self.url)
+      def load(self,url):
+          self.visit(url)
       def context_click_alert(self):
           self.context_click(self.CONTEXTMENU)
           alert=self.check_alert()

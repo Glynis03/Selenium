@@ -1,3 +1,5 @@
 pytest==8.1.1
 selenium==4.18.1
 webdriver-manager==4.0.1
+openpyxl==3.1.5
+pytest_order==1.4.0

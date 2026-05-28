@@ -8,9 +8,8 @@ class LoginPage(BasePage):
       FLASH_MESSAGE=(By.ID,"flash")
       def __init__(self,driver):
           super().__init__(driver)
-          self.url="https://the-internet.herokuapp.com/login"
-      def load(self):
-          self.visit(self.url)
+      def load(self,url):
+          self.visit(url)
       def login(self,username,password):
           self.type(self.USERNAME_INPUT,username)
           self.type(self.PASSWORD_INPUT,password)

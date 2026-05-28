@@ -6,9 +6,8 @@ class DragDropPage(BasePage):
       COLUMN_B=(By.CSS_SELECTOR, "#column-b > header")
       def __init__(self,driver):
           super().__init__(driver)
-          self.url="https://the-internet.herokuapp.com/drag_and_drop"
-      def load(self):
-          self.visit(self.url)
+      def load(self,url):
+          self.visit(url)
       def check_dragdrop_AtoB(self):
           self.drag_drop(self.COLUMN_A,self.COLUMN_B)
           text_a=self.get_text(self.COLUMN_A)

@@ -1,6 +1,8 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
+from selenium.webdriver.support.ui import Select
+
 class BasePage:
       def __init__(self,driver):
           self.driver=driver
@@ -29,3 +31,12 @@ class BasePage:
           actions.drag_and_drop(source,target).perform()
       def get_text(self,locator):
           return self.find(locator).text
+      def find_all_elements(self,locator):
+          elements=self.wait.until(EC.presence_of_all_elements_located(locator))
+          return elements
+      def drop_down(self,locator,value):
+          select=Select(self.find(locator))
+          select.select_by_value(value)
+          return select.first_selected_option.text
+  
+          
